@@ -2,7 +2,6 @@
 using Kingdee.BOS.App;
 using Kingdee.BOS.App.Data;
 using Kingdee.BOS.Contracts;
-using Kingdee.BOS.Core.Metadata.Util;
 using Kingdee.BOS.Core.Report;
 using Kingdee.BOS.Util;
 using Kingdee.K3.SCM.App.Stock.Report;
@@ -43,6 +42,7 @@ namespace StockRptChange
 
         /// <summary>
         /// 重写报表动态列
+        /// (注:当在BOS里新增列没有生效时使用;若重写此方法在运行后只查看到新增列而没有原来的列,就不能重写此方法,需将新列在BOS里新增)
         /// </summary>
         /// <param name="filter"></param>
         /// <returns></returns>
