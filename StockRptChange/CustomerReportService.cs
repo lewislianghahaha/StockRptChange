@@ -17,7 +17,7 @@ namespace StockRptChange
         /// 作用:1）创建自定义临时表并保存初步查询结果 2)将第1步提出的查询结果与新SQL结合并INTO至基类默认的临时表
         /// </summary>
         /// <param name="filter"></param>
-        /// <param name="tableName"></param>
+        /// <param name="tableName">最后输出的临时表</param>
         public override void BuilderReportSqlAndTempTable(IRptParams filter, string tableName)
         {
             //创建临时表,用于存放自已的数据
@@ -25,7 +25,7 @@ namespace StockRptChange
             _customRptTempDt = dbservice.CreateTemporaryTableName(Context, 1);
             var strDt = _customRptTempDt[0];
 
-            //调用基类的方法,获取初步的查询结果到临时表
+            //调用基类的方法,获取初步的查询结果赋值到临时表
             base.BuilderReportSqlAndTempTable(filter, strDt);
 
             //对初步的查询结果进行处理,然后写回基类默认的存放查询结果的临时表
